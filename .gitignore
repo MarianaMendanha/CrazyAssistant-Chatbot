@@ -5,9 +5,11 @@ data/
 chat-memory/
 persist-content/
 
+# Ignorar o arquivo de configuração
+config.json
+
 # Ignorar arquivos .pkl
 *.pkl
-
 
 # Ignorar diretórios de ambiente virtual
 venv/
