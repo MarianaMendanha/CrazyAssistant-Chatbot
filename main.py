@@ -5,6 +5,7 @@ from llama_index.core import Settings
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from llama_index.llms.ollama import Ollama
 from llama_index.readers.microsoft_sharepoint import SharePointReader
+
 from tools import process_documents, display_documents, manage_index, configure_chat_memory, setup_chat_engine, chat_loop
 
 with open('config.json', 'r') as f:
@@ -46,7 +47,7 @@ def main():
 
     # Configurar o chat
     user_name = input("Digite seu nome: ")
-    print(f"Seja Bem-Vindo(a), {user_name}")
+    print(f"Seja Bem-Vindo(a), {user_name}\n")
     
     memory, memory_path = configure_chat_memory(user_name)  # Configura o armazenamento de memória do chat
     chat_engine = setup_chat_engine(index_pickle, memory, user_name)   # Configura o motor de chat

@@ -1,7 +1,19 @@
 import sys, os
 from llama_index.core.memory import ChatMemoryBuffer
 from llama_index.core.storage.chat_store import SimpleChatStore
+import logging
 
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
+
+# Função para desativar logs temporariamente
+def disable_logging():
+    logging.disable(logging.INFO)
+
+# Função para reativar logs
+def enable_logging():
+    logging.disable(logging.NOTSET)
+    
 terminal_width = os.get_terminal_size().columns
 
 # Configurar o sistema de memória do chat
@@ -35,7 +47,9 @@ def setup_chat_engine(index_pickle, memory, user_name):
         ),
         verbose=False,
         max_results=100,
-        top_k=100
+        top_k=100,
+        similarity_top_k=5,
+        streaming=True
     )
     return chat_engine
 
@@ -47,6 +61,11 @@ def chat_loop(chat_engine, chat_store, memory_path):
             chat_store.persist(persist_path=memory_path)
             sys.exit()
         else:
-            response = chat_engine.chat(question)
-            print(response)
+            disable_logging()
+            response = chat_engine.stream_chat(question)
+            # print(response)
+            print("ChatAssistant:\n")
+            response.print_response_stream()
+            print("\n")
             print('-' * terminal_width)
+            enable_logging()
