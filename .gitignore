@@ -1,0 +1,52 @@
+# Ignorar diretórios específicos
+tools/OLD/
+OLD-main/
+data/
+chat-memory/
+persist-content/
+
+# Ignorar arquivos .pkl
+*.pkl
+
+
+# Ignorar diretórios de ambiente virtual
+venv/
+env/
+.env/
+
+# Ignorar arquivos de cache do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar arquivos de configuração IDE
+.vscode/
+.idea/
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de banco de dados SQLite
+*.sqlite3
+
+# Ignorar arquivos temporários
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# Ignorar arquivos de build e distribuição
+build/
+dist/
+*.egg-info/
+*.egg
+*.tar.gz
+*.zip
+
+# Ignorar arquivos de configuração do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos de testes
+test_*.py
