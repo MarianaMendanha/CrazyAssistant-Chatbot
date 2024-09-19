@@ -3,6 +3,7 @@ import pytesseract
 from transformers import BlipProcessor, BlipForConditionalGeneration
 from PIL import Image
 import os
+import json
 
 # Carrega e processa documentos da pasta
 def process_documents(input_dir):
@@ -55,7 +56,10 @@ def generate_image_description(image_path):
         str: Descrição combinada da imagem e texto extraído.
     """
     # Configurar o caminho do Tesseract
-    pytesseract.pytesseract.tesseract_cmd = "C:/Users/mariana.cruz/AppData/Local/Programs/Tesseract-OCR/tesseract.exe"
+    with open('../config.json', 'r') as f:
+        config = json.load(f)
+
+    pytesseract.pytesseract.tesseract_cmd = config['tesseract_cmd']
     
     # Carregar o modelo de legendagem de imagens
     processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
