@@ -40,19 +40,35 @@ As principais tecnologias e ferramentas utilizadas no projeto incluem:
 A estrutura do projeto está organizada da seguinte maneira:
 
 ```
-├── chat-memory/         # Memória de chats por usuário
-├── data/                # Diretório de dados, contendo documentos e imagens
-│   ├── docx/
-│   ├── images/
-│   ├── pdf/
-│   └── text/
-├── persist-content/      # Conteúdos persistidos (índices e modelos)
-├── tools/               # Ferramentas e funções auxiliares
-│   ├── __init__.py
-│   ├── document_processing.py
-│   ├── index_management.py
-│   └── chat_helpers.py
-└── main.py              # Arquivo principal do projeto
+C:.
+│   .gitignore                # Arquivo que especifica quais arquivos e diretórios devem ser ignorados pelo controle de versão (Git).
+│   config.json               # Arquivo de configuração que armazena informações sensíveis, como credenciais de SharePoint e configurações de projeto.
+│   main.py                   # Arquivo principal que contém o código que orquestra o fluxo do projeto, incluindo o carregamento de documentos, processamento e interação com o chat.
+│   readme.md                 # Arquivo de documentação que fornece uma visão geral do projeto, instruções de uso e configuração.
+│   requirements.txt          # Lista de dependências do Python necessárias para o projeto, usada para configurar o ambiente com `pip install -r requirements.txt`.
+│
+├───chat-memory               # Diretório que armazena a memória do chat para diferentes usuários.
+│       fulano_memory.json    # Arquivo de memória do chat para um usuário específico (neste exemplo, "Fulano"), onde são armazenadas interações anteriores do chat.
+│
+├───data                      # Diretório onde os documentos locais são armazenados para processamento.
+│                             # Subdiretórios e arquivos podem ser adicionados aqui para diferentes tipos de documentos (PDF, DOCX, imagens, etc.).
+│
+├───index                     # Diretório que armazena os arquivos de índice gerados após o processamento dos documentos.
+│       index.pkl             # Arquivo principal de índice usado para buscar e recuperar documentos no chat.
+│
+├───persist-content           # Diretório onde são armazenados conteúdos persistentes, como vetores de embedding e estruturas de documentos.
+│       default__vector_store.json  # Armazena vetores de embedding padrão para a busca vetorial.
+│       docstore.json               # Armazena os metadados e informações sobre os documentos processados.
+│       graph_store.json            # Armazena a estrutura de grafos entre os documentos, útil para relacionamentos e consultas complexas.
+│       image__vector_store.json    # Vetores de embedding para imagens processadas, caso haja suporte para consultas de imagens.
+│       index_store.json            # Armazena a estrutura do índice que associa documentos com seus vetores de embedding.
+│
+└───tools                     # Diretório com scripts auxiliares usados para processar documentos, gerenciar índices e configurar o chat.
+        chat_helpers.py        # Script com funções auxiliares para o chat, como configuração e gerenciamento de memória.
+        document_processing.py # Script que contém funções para processar e preparar documentos para inclusão no índice.
+        index_management.py    # Script responsável pela criação e gerenciamento de índices de documentos.
+        __init__.py            # Arquivo que marca este diretório como um pacote Python, permitindo que os módulos sejam importados no projeto.
+
 ```
 
 ---
