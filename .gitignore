@@ -4,6 +4,7 @@ OLD-main/
 data/
 chat-memory/
 persist-content/
+lista_de_coisas_pra_fazer.md
 
 # Ignorar o arquivo de configuração
 config.json

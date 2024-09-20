@@ -39,7 +39,7 @@ def main():
     # Carregar e processar documentos
     documents = loader.load_data()
     ### DOCUMENTOS LOCAIS ###
-    #documents = process_documents(input_dir="./data")
+    # documents = process_documents(input_dir="./data")
     display_documents(documents)  # Exibe os documentos processados no terminal
     
     # Gerenciar o índice de documentos

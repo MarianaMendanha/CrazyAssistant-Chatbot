@@ -56,7 +56,7 @@ def generate_image_description(image_path):
         str: Descrição combinada da imagem e texto extraído.
     """
     # Configurar o caminho do Tesseract
-    with open('../config.json', 'r') as f:
+    with open('./config.json', 'r') as f:
         config = json.load(f)
 
     pytesseract.pytesseract.tesseract_cmd = config['tesseract_cmd']

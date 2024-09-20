@@ -37,7 +37,7 @@ def setup_chat_engine(index_pickle, memory, user_name):
         chat_mode="condense_plus_context",
         memory=memory,
             context_prompt = (
-            f"You are a chatbot called CrazyAssistant, able to have normal interactions, as well as help"
+            f"You are a chatbot called CrazyAssistant, that speaks im portuguese-BR, able to have normal interactions, as well as help"
             f" employees with their questions about the documents of the CrazyTechLabs Company. "
             f"Your current user is {user_name}. Here are the relevant documents for the context:\n"
             "{context_str}"
@@ -48,7 +48,7 @@ def setup_chat_engine(index_pickle, memory, user_name):
         verbose=False,
         max_results=100,
         top_k=100,
-        similarity_top_k=5,
+        similarity_top_k=10,
         streaming=True
     )
     return chat_engine
