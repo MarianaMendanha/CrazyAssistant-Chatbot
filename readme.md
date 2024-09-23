@@ -79,7 +79,7 @@ Siga os passos abaixo para configurar o ambiente do projeto:
 
 1. **Clone o repositório**:
    ```bash
-   git clone https://github.com/seu-usuario/crazyassistant-chatbot.git
+   git clone https://github.com/MarianaMendanha/CrazyAssistant-Chatbot.git
    ```
 
 2. **Instale as dependências**:
