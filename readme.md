@@ -1,5 +1,5 @@
 
-# 🤖 CrazyAssistant Chatbot
+# 🤖 Assistant Chatbot
 
 CrazyAssistant é um chatbot avançado com suporte a processamento de documentos, geração de descrições de imagens e interações dinâmicas com usuários, utilizando tecnologia de última geração. Este projeto usa **LLaMA** para criação de chatbots personalizados, integrando **RAG (Retrieval-Augmented Generation)** com **documentos locais** e serviços na nuvem.
 
